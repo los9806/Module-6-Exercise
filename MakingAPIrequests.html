@@ -1,0 +1,36 @@
+<!doctype html>
+  <html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <title>Module 6: API Requests</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+
+    <body>
+
+        <h1>Module 6: Making API Requests (Chuck Norris Jokes)</h1>
+
+        <button id="getJoke">Chuck Norris Jokes Here!</button>
+        <br>
+        <p id="jokeOutput"></p>
+
+        <script>
+            const url = "https://api.chucknorris.io/jokes/random"; //declares a constant for the URL
+            document.getElementById("getJoke").addEventListener("click", receiveJoke); //when you press the button, it gets the joke
+
+            function receiveJoke() {
+                fetch(url) //connect and grabs a joke
+                .then(response => response.json()) //stop and parse the data received for the joke
+                .then(data => {
+                    document.getElementById("jokeOutput").textContent = data.value; //print value onto html
+                });
+            }
+
+        </script>
+
+    </body>
+
+</html>
